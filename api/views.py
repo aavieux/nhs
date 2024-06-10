@@ -3,8 +3,8 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.authentication import authenticate
 from rest_framework.authtoken.views import obtain_auth_token
-from .models import Hospital, Patient
-from .serializers import HospitalSerializer, PatientSerializer
+from .models import *
+# from .serializers import HospitalSerializer, PatientSerializer
 from rest_framework.views import APIView
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -30,7 +30,17 @@ from django.http import HttpResponse
 #     queryset = Patient.objects.all()
 #     serializer_class = PatientSerializer
 #     lookup_field = "pk"
-def index(response):
-    return HttpResponse("tech with tim!")
-def v1(response):
-    return HttpResponse("view 1")
+def index(response): # /
+    hospital = Hospital.objects.get(id = 1)
+    return render(response, "nhs/home.html", {"name": hospital.name})
+def base(response):
+    return render(response, "nhs/base.html", {})
+def viewPatient(response, id): # /patient/x
+    patient = Patient.objects.get(id=id)
+    appointment = patient.appointment_set.all()[0]
+    # return HttpResponse("<h1>%s<h1/>" % str(appointment))
+    return render(response, "nhs/patient.html", {"patient": patient, "appointment": appointment})
+
+
+# def home(response):
+

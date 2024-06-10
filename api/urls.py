@@ -1,9 +1,11 @@
 from django.urls import path
-from . import views
+from django.views.generic import RedirectView
 
+from . import views
+from .models import *
 urlpatterns = [
     # path("patients", views.PatientPostListCreate.as_view(), name="patients-view-create"),
     # path("patients/<int:pk>", views.PatientPostRetrieveUpdateDestroy.as_view(), name="update")
-    path("", views.index, name="index"),
-    path("v1/", views.v1, name="view 1"),
+    # path('', RedirectView.as_view(url='/admin/', permanent=True)),
+    # path("home/", views.home, name="home")
 ]

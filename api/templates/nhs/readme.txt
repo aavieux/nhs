@@ -1,0 +1,1 @@
+the folder must be with the same name like the nhs main app folder, for django to recognise the templates
