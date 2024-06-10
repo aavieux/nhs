@@ -8,4 +8,3 @@ admin.site.register(HealthCareProf)
 admin.site.register(Department)
 admin.site.register(MedicalCase)
 admin.site.register(MedicalRecord)
-
