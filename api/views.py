@@ -30,17 +30,17 @@ from django.http import HttpResponse
 #     queryset = Patient.objects.all()
 #     serializer_class = PatientSerializer
 #     lookup_field = "pk"
-def index(response): # /
-    hospital = Hospital.objects.get(id = 1)
-    return render(response, "nhs/home.html", {"name": hospital.name})
-def base(response):
-    return render(response, "nhs/base.html", {})
-def viewPatient(response, id): # /patient/x
-    patient = Patient.objects.get(id=id)
-    appointment = patient.appointment_set.all()[0]
-    # return HttpResponse("<h1>%s<h1/>" % str(appointment))
-    return render(response, "nhs/patient.html", {"patient": patient, "appointment": appointment})
-
-
-# def home(response):
+# def index(response): # /
+#     hospital = Hospital.objects.get(id = 1)
+#     return render(response, "nhs/home.html", {"name": hospital.name})
+# def base(response):
+#     return render(response, "nhs/base.html", {})
+# def viewPatient(response, id): # /patient/x
+#     patient = Patient.objects.get(id=id)
+#     appointment = patient.appointment_set.all()[0]
+#     # return HttpResponse("<h1>%s<h1/>" % str(appointment))
+#     return render(response, "nhs/patient.html", {"patient": patient, "appointment": appointment})
+#
+#
+# # def home(response):
 
